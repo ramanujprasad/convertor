@@ -1,0 +1,14 @@
+
+.cc-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.flex-col {
+  flex: 1 1 50%;
+}

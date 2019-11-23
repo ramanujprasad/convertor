@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <h1>Currency Convertor</h1>
+</mat-toolbar>
+<div class="cc-wrapper">
+  <div class="flex">
+    <div class="flex-col">
+      <mat-form-field>
+        <input matInput placeholder="Enter currency value" type="text" [(ngModel)]="currencyInput" (change)="handleInputChange()">
+      </mat-form-field>
+    </div>
+    <div class="flex-col">
+      <mat-form-field>
+        <mat-label>From Currency</mat-label>
+        <mat-select [(value)]="fromCurrency" (selectionChange)="getCurrencyRates()">
+          <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="flex-col">
+      <mat-form-field >
+        <input matInput placeholder="Converted Currency"  [value]="convertedCurrency" readonly type="text">
+      </mat-form-field>
+    </div>
+    <div class="flex-col">
+      <mat-form-field>
+        <mat-label>Target Currency</mat-label>
+        <mat-select [(value)]="targetCurrency" (selectionChange)="getCurrencyRates()">
+          <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <button mat-raised-button (click)="calculateCurrency()" color="primary">Calculate</button>
+    <p>fromCurrency: {{fromCurrency}}</p>
+    <p>targetCurrency: {{targetCurrency}}</p>
+    <p>currencyInput: {{currencyInput}}</p>
+    <p> <strong>convertedCurrency: {{convertedCurrency}}</strong></p>
+    <p>currencyConversionRate: {{currencyConversionRate}}</p>
+  </div>
+
+</div>
+
